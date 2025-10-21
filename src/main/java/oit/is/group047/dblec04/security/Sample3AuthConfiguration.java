@@ -23,6 +23,8 @@ public class Sample3AuthConfiguration {
         .authorizeHttpRequests(authz -> authz
             .requestMatchers("/sample4/**").authenticated() // /sample4/以下は認証済みであること
             .anyRequest().permitAll()) // 上記以外は全員アクセス可能
+        .csrf(csrf -> csrf
+            .ignoringRequestMatchers("/h2-console/*")) // CSRF対策を無効化
         .headers(headers -> headers
             .frameOptions(frameOptions -> frameOptions
                 .sameOrigin()));
