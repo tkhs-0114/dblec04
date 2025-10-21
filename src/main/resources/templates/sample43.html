@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.springframework.org/schema/security">
+
+<head>
+  <meta charset="utf-8">
+  <title>SpringBoot Sample4-3</title>
+</head>
+
+<body>
+  <h1>Authorized! <span sec:authentication="name"></span>
+  </h1>
+  <a href="/logout">ログアウト</a>
+  <form th:action="@{/sample4/step3}" method="post">
+    <input type="text" name="chamberName">
+    <input type="submit" value="送信">
+  </form>
+</body>
+
+</html>
