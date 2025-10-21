@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -61,6 +62,23 @@ public class Sample41Controller {
     model.addAttribute("chambers5", chambers5);
 
     return "sample45.html";
+  }
+
+  @GetMapping("step6")
+  public String sample46() {
+    return "sample46.html";
+  }
+
+  @GetMapping("step7")
+  @Transactional
+  public String sample47(ModelMap model) {
+    System.out.println("ok");
+    ArrayList<ChamberUser> chambers7 = chamberMapper.selectAllJoin();
+    for (ChamberUser cu : chambers7) {
+      System.out.println(cu.getChamberName() + " " + cu.getUserName());
+    }
+    // model.addAttribute("chambers7", chambers7);
+    return "sample46.html";
   }
 
 }

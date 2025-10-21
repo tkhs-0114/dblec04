@@ -20,4 +20,7 @@ public interface ChamberMapper {
   @Select("SELECT * from chamber where chamberName = #{chamberName}")
   ArrayList<Chamber> selectAllByChamberName(String chamberName);
 
+  @Select("SELECT chamber.userName,chamber.chamberName,userinfo.age,userinfo.height from chamber JOIN userinfo ON chamber.userName=userinfo.userName;")
+  ArrayList<ChamberUser> selectAllJoin();
+
 }

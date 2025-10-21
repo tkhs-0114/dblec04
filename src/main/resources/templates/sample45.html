@@ -17,15 +17,18 @@
   </form>
 
   <p th:if="${chambers5}">
-    <div th:each="chamber,stat:${chambers5}">
-      <tr>
-        <td>Index:[[${stat.index}]]</td>
-        <td>ID:[[${chamber.id}]]</td>
-        <td>ユーザ名:[[${chamber.userName}]]</td>
-        <td>小屋名:[[${chamber.chamberName}]]</td>
-      </tr>
-    </div>
+  <div th:each="chamber,stat:${chambers5}">
+    <tr>
+      <td>Index:[[${stat.index}]]</td>
+      <td>ID:[[${chamber.id}]]</td>
+      <td>ユーザ名:[[${chamber.userName}]]</td>
+      <td>小屋名:[[${chamber.chamberName}]]</td>
+    </tr>
+  </div>
   </p>
+  <div>
+    <a href="/sample4/step6">Sample4-6へGETで移動</a>
+  </div>
 </body>
 
 </html>
