@@ -1,6 +1,7 @@
 package oit.is.group047.dblec04.controller;
 
 import java.security.Principal;
+import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -47,4 +48,19 @@ public class Sample41Controller {
     model.addAttribute("chamber3", chamber3);
     return "sample43.html";
   }
+
+  @GetMapping("step5")
+  public String sample45() {
+
+    return "sample45.html";
+  }
+
+  @PostMapping("step5")
+  public String sample46_1(@RequestParam String chamberName, ModelMap model) {
+    ArrayList<Chamber> chambers5 = chamberMapper.selectAllByChamberName(chamberName);
+    model.addAttribute("chambers5", chambers5);
+
+    return "sample45.html";
+  }
+
 }
